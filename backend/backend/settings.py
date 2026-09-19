@@ -5,9 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-j_89af+30&&4qm*8z9_(^zz8p4-ho8z_m6ylm0s$h!-p@on1_^'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['158.160.201.37', '127.0.0.1', 'localhost', 'taskiforyou.ddns.net']
 
 
 # Application definition
@@ -103,15 +103,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static_backend/'
+STATIC_ROOT = BASE_DIR / 'static_backend'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000'
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
 ]
 
 REST_FRAMEWORK = {
@@ -119,3 +122,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ]
 }
+CSRF_TRUSTED_ORIGINS = [
+    'https://taskiforyou.ddns.net',
+    'http://taskiforyou.ddns.net',
+    'http://158.160.201.37',
+    'https://158.160.201.37',
+]
